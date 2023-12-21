@@ -9,3 +9,9 @@ void replaceChar(char *s, char oldChar, char newChar) {
         }
     }
 }
+char *replaceCharCopy(const char *s, char oldChar, char newChar) {
+    char *newStr = strdup(s);
+    if (!newStr) return NULL;
+    replaceChar(newStr, oldChar, newChar);
+    return newStr;
+}
