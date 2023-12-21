@@ -15,3 +15,28 @@ char *replaceCharCopy(const char *s, char oldChar, char newChar) {
     replaceChar(newStr, oldChar, newChar);
     return newStr;
 }
+void removeChar(char *s, char c) {
+    char *prune = s;
+    while (*s) {
+        if (*s != c) {
+            *prune++ = *s;
+        }
+        s++;
+    }
+    *prune = '\0';
+}
+
+char *removeCharCopy(const char *s, char c) {
+    char *newStr = (char *)malloc(strlen(s) + 1); // +1 for null terminator
+    if (!newStr) return NULL;
+
+    char *temp = newStr;
+    while (*s) {
+        if (*s != c) {
+            *temp++ = *s;
+        }
+        s++;
+    }
+    *temp = '\0';
+    return newStr;
+}
